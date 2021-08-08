@@ -4,6 +4,8 @@ import exphbs from 'express-handlebars'
 import sqlite3 from 'sqlite3'
 import { open } from 'sqlite'
 
+import bcrypt from 'bcrypt'
+
 const dbPromise = open({
   filename: 'data.db',
   driver: sqlite3.Database
@@ -22,6 +24,10 @@ app.get('/', async (req, res) => {
   res.render('home', { messages })
 })
 
+app.get('/register', async (req, res) => {
+  res.render('register')
+})
+
 app.post('/message', async (req, res) => {
   const db = await dbPromise
   const messageText = req.body.messageText
@@ -29,8 +35,16 @@ app.post('/message', async (req, res) => {
   res.redirect('/')
 })
 
-app.get('/time', (req, res) => {
-  res.send('the current time is ' + (new Date()).toLocaleTimeString())
+app.post('/register', async (req, res) => {
+  const {
+    name,
+    email,
+    password,
+    passwordConfirmation
+  } = req.body;
+  const passwordHash = await bcrypt.hash(password, 10)
+  console.log(passwordHash)
+  res.redirect('/')
 })
 
 const setup = async () => {
