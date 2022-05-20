@@ -5,6 +5,13 @@ CREATE TABLE Message (
   text STRING
 );
 
+CREATE TABLE User (
+  id INTEGER PRIMARY KEY,
+  username STRING,
+  password STRING
+);
+
 -- Down
 
 DROP TABLE Message;
+DROP TABLE User;
