@@ -1,13 +1,15 @@
-<h1>Message Board</h1>
+<h1 style="margin-top: 16px">Message Board</h1>
 
-<ul>
+<form class="message-box" action="/message" method="post">
+  <label for="messageText">Send a message:</label>
+  <div class="flex">
+    <input type="text" id="messageText" name="messageText" />
+    <button type="submit">send</button>
+  </div>
+</form>
+
+<ul class="message-list">
   {{#each messages}}
-  <li style="font-style:italic">{{id}}: {{text}}</li>
+  <li class="message bg-{{random 8}}">{{text}}</li>
   {{/each}}
 </ul>
-
-<form action="/message" method="post">
-  <label for="messageText">message:</label>
-  <input type="text" id="messageText" name="messageText" />
-  <button type="submit">send</button>
-</form>
