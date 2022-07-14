@@ -34,11 +34,12 @@ A proper user authentication system requires registering users, identifying thei
 - Using Nodemon
 - Hashing passwords
 
-(Filmed - editing in progress)
+[YouTube link](https://youtu.be/hw5y9cjBJ_A) (26:20)
 
 ### 4. Linking users and posts
 Building on the registration system, we now associate each post with the user that posted it, and look up each of them when we retrieve the posts.
 #### Topics covered
+- Cookies
 - SQL joins
 - SQL Foreign Keys
 
@@ -48,7 +49,7 @@ Building on the registration system, we now associate each post with the user th
 Our previous video had a huge security flaw: any user could post as any other user! It's time to ask for passwords with a login form, and remember who they are with cookies.
 #### Topics covered
 - Comparing hashed passwords
-- Cookies and authentication tokens
+- Authentication tokens and proper cookie usage
 - Sessions
 
 (Planned)
